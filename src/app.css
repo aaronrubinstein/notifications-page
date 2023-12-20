@@ -31,9 +31,14 @@ body {
 	--light-grey-blue: hsl(211, 68%, 94%);
 	--very-light-grey-blue: hsl(205, 33%, 90%);
 	--grey-blue: hsl(219, 14%, 63%);
-	--dark-gray-blue: hsl(219, 12%, 42%);
+	--dark-grey-blue: hsl(219, 12%, 42%);
 	--very-dark-grey-blue: hsl(224, 21%, 14%);
 
 	min-height: 100dvh;
 	background-color: var(--snow);
+}
+
+#app {
+	display: flex;
+	justify-content: center;
 }
