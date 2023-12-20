@@ -1,0 +1,39 @@
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+:root {
+	font-family: 'Plus Jakarta Sans', sans-serif;
+	font-size: 16px;
+}
+
+input, button, textarea, select {
+	font: inherit;
+}
+
+button {
+	border: none;
+	background: none;
+}
+
+body {
+
+	/* Colors */
+	--red: hsl(1, 90%, 64%);
+	--blue: hsl(219, 85%, 26%);
+	--white: hsl(0, 0%, 100%);
+	--snow: hsl(210, 60%, 98%);
+	--light-grey-blue: hsl(211, 68%, 94%);
+	--very-light-grey-blue: hsl(205, 33%, 90%);
+	--grey-blue: hsl(219, 14%, 63%);
+	--dark-gray-blue: hsl(219, 12%, 42%);
+	--very-dark-grey-blue: hsl(224, 21%, 14%);
+
+	min-height: 100dvh;
+	background-color: var(--snow);
+}
