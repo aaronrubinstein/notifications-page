@@ -11,9 +11,9 @@ This is a solution to the [Notifications page challenge on Frontend Mentor](http
 
 **Desktop**
 
-<img src="./solution/desktop.png" height=90% width=90%>
+<img src="./solution/desktop.png" height=70% width=70%>
 
 
 **Mobile**
 
-<img src="./solution/mobile.png" height=40% width=34%>
+<img src="./solution/mobile.png" height=30% width=30%>
