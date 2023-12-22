@@ -1,18 +1,18 @@
 <script>
 	import Notification from "./lib/Notification.svelte";
-	import { data } from "./stores";
+	import { notifications, markAllAsRead } from "./stores";
 
-	let unreadCount = $data.filter(item => item.unread === true).length;
+	$: unreadCount = $notifications.filter(item => item.unread === true).length;
 </script>
 
 <div class="card">
 	<header>
 		<h1>Notifications</h1>
 		<span class="unread-count">{unreadCount}</span>
-		<button type="button">Mark all as read</button>
+		<button on:click={markAllAsRead} type="button">Mark all as read</button>
 	</header>
 
-	{#each $data as notification}
+	{#each $notifications as notification (notification.id)}
 		<Notification {...notification} />
 	{/each}
 
@@ -21,11 +21,12 @@
 <style>
 	.card {
 		max-width: 730px;
+		margin: 0 20px;
 		margin-top: 63px;
 		border-radius: 15px;
 		background: var(--white);
 		box-shadow: 0px 20px 60px 0px rgba(73, 97, 168, 0.05);
-		padding: 33px 30px 30px 32px;
+		padding: 33px 30px 10px 32px;
 	}
 
 	header {
@@ -66,5 +67,29 @@
 		color: var(--blue);
 	}
 
+	@media (max-width: 650px) {
+		.card {
+			margin: 0;
+			border-radius: 0px;
+			box-shadow: none;
+			padding: 24px 16px 10px 16px;
+		}
+
+		header {
+			margin-bottom: 24px;
+		}
+
+		h1 {
+			font-size: 20px;
+		}
+
+		.unread-count {
+			margin-left: 9px;
+		}
+
+		button {
+			font-size: 14px;
+		}
+	}
 
 </style>

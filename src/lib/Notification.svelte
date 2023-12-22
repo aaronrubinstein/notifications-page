@@ -6,12 +6,9 @@
     export let avatar;
     export let action;
     export let subject;
-    export let group;
     export let message;
     export let image;
     export let age;
-
-    // console.log(`id: ${id}, subject: ${subject}, ${subject ? 'yes' : 'no'}`);
 
 </script>
 
@@ -23,7 +20,6 @@
                 <span class="text user">{user}</span>
                 <span class="text action">{action}</span>
                 {#if subject}<span class="text subject">{subject}</span>{/if}
-                {#if group}<span class="text group">{group}</span>{/if}
                 {#if unread}<span class="dot"></span>{/if}
             </p>
             <span class="text age">{age}</span>
@@ -32,6 +28,12 @@
             <img src={image} alt="Thumbnail" class="thumbnail">
         {/if}
     </div>
+
+    {#if message}
+        <div class="message-container">
+            <p class="message">{message}</p>
+        </div>
+    {/if}
     
 </div>
 
@@ -71,10 +73,10 @@
 
     .subject {
         font-weight: 800;
+        cursor: pointer;
     }
 
-    .group {
-        font-weight: 800;
+    .subject:hover {
         color: var(--blue);
     }
 
@@ -95,13 +97,68 @@
         color: var(--grey-blue);
     }
 
-
     .thumbnail {
         width: 45px;
         height: 45px;
         margin-left: auto;
     }
 
+    .message-container {
+        border: 1px solid var(--very-light-grey-blue);
+        border-radius: 5px;
+        padding: 17px 20px 20px 20px;
+        margin: 13px 0 3px 64px;
+        cursor: pointer;
+    }
 
+    .message-container:hover {
+        background: var(--light-grey-blue);
+    }
+
+    .message {
+        font-size: 16px;
+        font-weight: 500px;
+        color: var(--dark-grey-blue);
+    }
+
+    @media (max-width: 650px) {
+        .container {
+            padding: 16px 14px 16px 16px;
+            margin-bottom: 10px;
+        }
+
+        .avatar {
+            width: 39px;
+            height: 39px;
+            margin-right: 13px;
+        }
+
+        .text {
+            font-size: 14px; 
+            margin-right: 3px;
+        }
+
+        .dot {
+            margin-bottom: 2px;
+        }
+
+        .notification {
+            margin-bottom: 3px;
+        } 
+
+        .thumbnail {
+            width: 39px;
+            height: 39px;
+        }
+
+        .message-container {
+            padding: 16px;
+            margin: 12px 0 3px 52px;
+        }
+
+        .message {
+            font-size: 14px;
+        }
+    }
 
 </style>

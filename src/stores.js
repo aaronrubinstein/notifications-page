@@ -1,6 +1,6 @@
 import { writable } from "svelte/store";
 
-export const data = writable([
+export const notifications = writable([
     {
         id: 1,
         unread: true,
@@ -8,7 +8,6 @@ export const data = writable([
         avatar: 'images/avatar-mark-webber.webp',
         action: 'reacted to your recent post',
         subject: 'My first tournament today!',
-        group: null,
         message: null,
         image: null,
         age: '1m ago'
@@ -19,8 +18,7 @@ export const data = writable([
         user: 'Angela Gray',
         avatar: 'images/avatar-angela-gray.webp',
         action: 'followed you',
-        subject: null,
-        group: null,
+        subject: null,  
         message: null,
         image: null,
         age: '5m ago'
@@ -31,8 +29,7 @@ export const data = writable([
         user: 'Jacob Thompson',
         avatar: 'images/avatar-jacob-thompson.webp',
         action: 'has joined your group',
-        subject: null,
-        group: 'Chess Club',
+        subject: 'Chess Club',
         message: null,
         image: null,
         age: '1 day ago'
@@ -43,8 +40,7 @@ export const data = writable([
         user: 'Rizky Hasanuddin',
         avatar: 'images/avatar-rizky-hasanuddin.webp',
         action: 'sent you a private message',
-        subject: null,
-        group: null,
+        subject: null,    
         message: "Hello, thanks for setting up the Chess Club. I've been a member for a few weeks now and I'm already having lots of fun and improving my game.",
         image: null,
         age: '5 days ago'
@@ -55,8 +51,7 @@ export const data = writable([
         user: 'Kimberly Smith',
         avatar: 'images/avatar-kimberly-smith.webp',
         action: 'commented on your picture',
-        subject: null,
-        group: null,
+        subject: null,  
         message: null,
         image: 'images/image-chess.webp',
         age: '1 week ago'
@@ -68,7 +63,6 @@ export const data = writable([
         avatar: 'images/avatar-nathan-peterson.webp',
         action: 'reacted to your recent post',
         subject: '5 end-game strategies to increase your win rate',
-        group: null,
         message: null,
         image: null,
         age: '2 weeks ago'
@@ -79,10 +73,14 @@ export const data = writable([
         user: 'Anna Kim',
         avatar: 'images/avatar-anna-kim.webp',
         action: 'left the group',
-        subject: null,
-        group: 'Chess Club',
+        subject: 'Chess Club',
         message: null,
         image: null,
         age: '2 weeks ago'
     }
 ]);
+
+export const markAllAsRead = () => {
+    notifications.update(data => data.map(item => 
+        item.unread === true ? {...item, unread: false} : item));
+};
